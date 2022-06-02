@@ -1,0 +1,283 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@200&family=Lora:wght@500;700&family=Montserrat:wght@400;500;700&display=swap');
+
+:root {
+  --ff-1: 'Crimson Pro', serif;
+  --ff-2: 'Lora', serif;
+  --ff-3: 'Montserrat', sans-serif;
+
+  --clr-black: #181719;
+  --clr-white: #fff;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  min-height: 100vh;
+
+  background-color: var(--clr-black);
+  color: white;
+
+  font-family: var(--ff-3);
+}
+
+header {
+  width: 100%;
+  height: fit-content;
+
+  padding: 2em 4em;
+
+  display: flex;
+
+  h1 {
+    font-family: var(--ff-1);
+    font-weight: 200;
+    font-size: 1.5em;
+    text-transform: uppercase;
+
+    padding: 0.5em;
+    border: 1px solid white;
+
+    white-space: nowrap;
+  }
+  nav {
+    width: 100%;
+  }
+  nav .close-icon {
+    display: none;
+  }
+  nav ul {
+    list-style: none;
+
+    display: flex;
+    align-items: center;
+
+    width: fit-content;
+    height: 100%;
+    margin-left: auto;
+
+    font-size: 1.1em;
+    font-weight: 500;
+    gap: 3em;
+
+    li {
+      padding: 0.5em 0;
+    }
+    li:not(.active):hover {
+      opacity: 0.8;
+      cursor: pointer;
+    }
+  }
+  .hamburger {
+    margin: auto 0;
+    margin-left: auto;
+    font-size: 1.5em;
+
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    padding: 1em 2em;
+    h1 {
+      padding: 0.2em .4em;
+    }
+    nav {
+      display: none;
+    }
+    .hamburger {
+      display: block;
+      cursor: pointer;
+    }
+  }
+}
+
+.active {
+  border-bottom: 3px solid var(--clr-white);
+  font-weight: 700;
+}
+.hide {
+  display: none;
+}
+
+nav#mobile-nav {
+  display: flex;
+  flex-direction: row-reverse;
+
+  padding: 2em;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  z-index: 100;
+
+  width: 100%;
+  height: 100vh;
+  background-color: var(--clr-black);
+  .close-icon {
+    font-size: 1.5em;
+    cursor: pointer;
+
+    display: block;
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin: auto;
+    gap: 1em;
+
+    font-size: 1.5em;
+
+    user-select: none;
+  }
+}
+
+main {
+  width: 100%;
+  height: fit-content;
+
+  padding: 2em 4em;
+
+  display: flex;
+
+  @media (max-width: 768px) {
+    padding: 1em 2em;
+    flex-direction: column;
+    gap: 2em;
+  }
+}
+
+section.hero-text-wrapper {
+  width: 40%;
+
+  display: flex;
+  flex-direction: column;
+  
+  margin-top: 4em;
+
+  h2 {
+    font-family: var(--ff-2);
+    font-weight: 500;
+    font-size: 3em;
+  }
+  p {
+    max-width: 25ch;
+    margin: 2em 0;
+  }
+  a {
+    font-weight: 700;
+    color: white;
+    text-decoration: none;
+  }
+
+  @media (max-width:768px) {
+    width: 100%;
+    margin-top: 2em;
+    h2 {font-size: 2em;}
+    p {
+      font-size: 1em;
+      margin: 1em 0;
+    }
+    a {font-size: 1em;}
+  }
+}
+section.hero-styles {
+  width: 60%;
+  margin-top: 2em;
+  .image-wrapper {
+    width: 80%;
+    margin-left: auto;
+    img {
+      width: 100%;
+    }
+  }
+  .profile-wrapper {
+    width: fit-content;
+    height: fit-content;
+    background: var(--clr-black);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2);
+
+    margin-left: auto;
+    margin-right: 2em;
+    transform: translateY(-50%);
+  }
+  @media (max-width: 768px) {
+    width: 100%;
+    .image-wrapper {
+      width: 100%;
+    }
+    .profile-wrapper {
+      margin-right: 1em;
+    }
+  }
+}
+
+.profile-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .top {
+    display: flex;
+    padding: 1em 1.5em;
+
+    .profile-image-wrapper {
+      width: 4em;
+      img {
+        width: 100%;
+        border-radius: 100%;
+        max-width: 4em;
+      }
+    }
+    .name {
+      width: fit-content;
+      margin: auto 0;
+      margin-left: 2em;
+
+      strong {
+        font-size: 1em;
+      }
+      p {
+        font-size: 0.8em;
+        opacity: 0.8;
+        margin-top: 0.5em;
+      }
+    }
+  }
+  .bottom {
+    padding: 0 1.5em;
+    padding-bottom: 1em;
+
+    font-size: 1.2em;
+    font-family: var(--ff-2);
+    font-weight: 700;
+
+    max-width: 20ch;
+  }
+  @media (max-width: 768px) {
+    .bottom {
+      font-size: 0.8em;
+    }
+    .top {
+      .profile-image-wrapper {
+        width: 3em;
+      }
+      .name {
+        strong {
+          font-size: 0.8em;
+        }
+        p {
+          font-size: 0.6em;
+        }
+      }
+    }
+  }
+}
